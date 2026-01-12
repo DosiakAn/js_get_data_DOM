@@ -5,16 +5,17 @@ const allPopulation = document.querySelectorAll('span.population');
 const populationArr = Array.from(allPopulation);
 
 const populationMap = populationArr.map((el) =>
-  el.textContent.trim().replaceAll(/\D/g, ''),
-);
+  el.textContent.trim().replace(/\D/g, ''));
 
 const numbers = [];
 
 for (const p of populationMap) {
-  const n = Number(p);
+  if (p.trim() !== '') {
+    const n = Number(p);
 
-  if (!Number.isNaN(n)) {
-    numbers.push(n);
+    if (!Number.isNaN(n)) {
+      numbers.push(n);
+    }
   }
 }
 
